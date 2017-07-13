@@ -4,6 +4,10 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.LinearLayout;
+
+import com.vansuita.materialabout.builder.AboutBuilder;
+import com.vansuita.materialabout.views.AboutView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,7 +80,31 @@ public class PageFragment extends Fragment{
     }
 
     private void initAboutMe() {
-        TestUtil.PrintLog(this.getContext(), "Load Page AboutMe Data");
+//        TestUtil.PrintLog(this.getContext(), "Load Page AboutMe Data");
+//        AboutView view = AboutBuilder.with(getContext())
+//                .setPhoto(R.mipmap.profile_picture)
+//                .setCover(R.mipmap.profile_cover)
+//                .setName("Your Full Name")
+//                .setSubTitle("Mobile Developer")
+//                .setBrief("I'm warmed of mobile technologies. Ideas maker, curious and nature lover.")
+//                .setAppIcon(R.mipmap.ic_launcher)
+//                .setAppName(R.string.app_name)
+//                .addGooglePlayStoreLink("8002078663318221363")
+//                .addGitHubLink("user")
+//                .addFacebookLink("user")
+//                .addFiveStarsAction()
+//                .setVersionNameAsAppSubTitle()
+//                .addShareAction(R.string.app_name)
+//                .setWrapScrollView(true)
+//                .setLinksAnimated(true)
+//                .setShowAsCard(true)
+//                .build();
+//
+//        LinearLayout e = (LinearLayout) getView().findViewById(R.id.container);
+//        view.setLayoutParams(new LinearLayout.LayoutParams(
+//                LinearLayout.LayoutParams.MATCH_PARENT,
+//                LinearLayout.LayoutParams.MATCH_PARENT));
+//        e.addView(view);
     }
 
     private void initPageNotification() {

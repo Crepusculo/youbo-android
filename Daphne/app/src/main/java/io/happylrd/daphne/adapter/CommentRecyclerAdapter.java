@@ -1,5 +1,6 @@
 package io.happylrd.daphne.adapter;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -9,6 +10,7 @@ import cn.crepusculo.cards.PureWithAvatarView;
 import cn.crepusculo.model.CardModel;
 import cn.crepusculo.model.PureCardModelWithAvatar;
 import io.happylrd.daphne.R;
+import io.happylrd.daphne.activity.ProfileActivity;
 import io.happylrd.youbo.common.widget.recycler.RecyclerAdapter;
 
 /**
@@ -33,8 +35,15 @@ public class CommentRecyclerAdapter<T> extends RecyclerAdapter {
     }
 
     @Override
-    protected void onCreateItem(View root, int viewType) {
-
+    protected void onCreateItem(final View root, int viewType) {
+        root.findViewById(R.id.avatar).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent();
+                i.setClass(root.getContext(),ProfileActivity.class);
+                root.getContext().startActivity(i);
+            }
+        });
     }
 
     @Override
