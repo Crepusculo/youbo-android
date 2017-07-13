@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="array_names" >
+        <item>Zenzu</item>
+        <item>Alice</item>
+        <item>Crepusculo</item>
+        <item>Astlah</item>
+    </string-array>
+</resources>

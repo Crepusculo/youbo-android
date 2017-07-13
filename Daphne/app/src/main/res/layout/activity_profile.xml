@@ -146,7 +146,7 @@
         android:layout_height="@dimen/image_width"
         android:layout_gravity="center_horizontal"
         android:src="@mipmap/avatar"
-        app:layout_behavior="io.happylrd.daphne.behavior.AvatarImageBehavior"
+        app:layout_behavior="io.happylrd.daphne.behavior.AvatarBehavior"
         app:finalHeight="@dimen/image_final_width"
         app:finalYPosition="2dp"
         app:startHeight="2dp"
