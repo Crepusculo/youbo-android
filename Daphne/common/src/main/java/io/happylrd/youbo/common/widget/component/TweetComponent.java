@@ -1,6 +1,5 @@
 package io.happylrd.youbo.common.widget.component;
 
-import io.happylrd.youbo.common.parcels.TweetParcelable;
 
 /**
  * Created by Crepusculo-Mri on 2017/7/4.
@@ -16,7 +15,7 @@ public class TweetComponent {
      *
      */
 
-    public TweetComponent(TweetParcelable parcel){
-
-    }
+//    public TweetComponent(TweetParcelable parcel){
+//
+//    }
 }

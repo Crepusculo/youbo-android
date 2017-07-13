@@ -28,6 +28,8 @@ import io.happylrd.daphne.adapter.MainActivityPagerAdapter;
 import io.happylrd.youbo.common.app.Activity;
 import io.happylrd.youbo.common.util.TestUtil;
 
+import static io.happylrd.daphne.R.id.toolbar;
+
 public class MainActivity extends Activity {
     /* bind data */
     @BindArray(R.array.drawer_titles)
@@ -38,6 +40,8 @@ public class MainActivity extends Activity {
     TabLayout mTabLayout;
     @BindView(R.id.pager)
     ViewPager mViewPager;
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
 
 //    @BindView(R.id.drawer_layout) DrawerLayout mDrawer;
 
@@ -52,13 +56,22 @@ public class MainActivity extends Activity {
     protected void initWidget() {
         super.initWidget();
         initToolbar().initNavBar().initTablayout();
+
     }
 
-    private void _initNavBar(){
+    @Override
+    protected void initData() {
+        super.initData();
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setBackgroundColor(getResources().getColor(R.color.primary));
+        mTabLayout.setBackgroundColor(getResources().getColor(R.color.primary));
+    }
+
+    private void _initNavBar() {
         List<AbstractDrawerItem> items = initDrawerItem(mTitles);
 
         int headRes = R.layout.layout_drawer_header;
-        int toolbarRes = R.id.toolbar;
+        int toolbarRes = toolbar;
         AccountHeader ac = new AccountHeaderBuilder()
                 .withActivity(this)
                 .withHeaderBackground(R.mipmap.place_holder)
@@ -86,25 +99,28 @@ public class MainActivity extends Activity {
         //
         builder.build();
     }
+
     private MainActivity initNavBar() {
-        TestUtil.PrintLog(this,"Initial Nav Start...");
-        _initNavBar();;
-        TestUtil.PrintLog(this,"Initial Nav Success!");
+        TestUtil.PrintLog(this, "Initial Nav Start...");
+        _initNavBar();
+        ;
+        TestUtil.PrintLog(this, "Initial Nav Success!");
         return this;
     }
 
-    private void _initToolbar(){
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+    private void _initToolbar() {
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
     }
+
     private MainActivity initToolbar() {
-        TestUtil.PrintLog(this,"Initial Toolbar Start...");
+        TestUtil.PrintLog(this, "Initial Toolbar Start...");
         _initToolbar();
-        TestUtil.PrintLog(this,"Initial Toolbar Success!");
+        TestUtil.PrintLog(this, "Initial Toolbar Success!");
         return this;
     }
 
-    private void _initTablayout(){
+    private void _initTablayout() {
         mViewPager.setAdapter(
                 new MainActivityPagerAdapter(
                         this.getSupportFragmentManager(),
@@ -119,21 +135,22 @@ public class MainActivity extends Activity {
         );
         mTabLayout.setupWithViewPager(mViewPager);
         for (int i = 0; i < mTabLayout.getTabCount(); i++) {
-            if (i == 0){
+            if (i == 0) {
                 mTabLayout.getTabAt(i).setIcon(R.drawable.ic_local_florist_24dp);
-            } else if (i==1){
+            } else if (i == 1) {
                 mTabLayout.getTabAt(i).setIcon(R.drawable.ic_whatshot_24dp);
-            }else if (i==2){
+            } else if (i == 2) {
                 mTabLayout.getTabAt(i).setIcon(R.drawable.ic_bell_24dp);
-            }else if (i==3){
+            } else if (i == 3) {
                 mTabLayout.getTabAt(i).setIcon(R.drawable.ic_face_24dp);
             }
         }
     }
+
     private MainActivity initTablayout() {
-        TestUtil.PrintLog(this,"Initial Tablayout Start...");
+        TestUtil.PrintLog(this, "Initial Tablayout Start...");
         _initTablayout();
-        TestUtil.PrintLog(this,"Initial Tablayout Success!");
+        TestUtil.PrintLog(this, "Initial Tablayout Success!");
         return this;
     }
 
@@ -162,7 +179,7 @@ public class MainActivity extends Activity {
     private class DrawerItemClickListener implements Drawer.OnDrawerItemClickListener {
         @Override
         public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-            TestUtil.PrintLog(view,position,true);
+            TestUtil.PrintLog(view, position, true);
             return false;
         }
     }
